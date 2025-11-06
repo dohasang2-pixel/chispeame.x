@@ -1,0 +1,305 @@
+chispeame2.0
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍪 Chispéame - Tan puras que son un pecado</title>
+
+<!-- Tipografía divertida -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Baloo 2', cursive;
+    background: radial-gradient(circle at top, #fff6eb 0%, #fbe2c5 100%);
+    color: #4b2c21;
+    overflow-x: hidden;
+  }
+
+  /* Fondo dinámico */
+  #cookie-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .cookie {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url('https://img.freepik.com/psd-premium/comida-galletas-3d_453897-728.jpg'); /* imagen de galleta redonda */
+    background-size: cover;
+    opacity: 0.9;
+    animation: fall linear infinite;
+    transform: rotate(0deg);
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.4; }
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #a6281a, #f0602b);
+    color: #fffbe9;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    animation: popIn 1s ease-out;
+  }
+
+  header h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  header p {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* --- Secciones Misión, Visión y Valores --- */
+  .section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 10px;
+    gap: 30px;
+  }
+
+  .card {
+    background: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+
+  .card::before {
+    content: "🍪"
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 3em;
+    opacity: 0.15;
+    transform: rotate(20deg);
+  }
+
+  .card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 0 10px 25px rgba(166,40,26,0.25);
+  }
+
+  .card h2 {
+    color: #a6281a;
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .card p {
+    text-align: justify;
+    line-height: 1.5em;
+    color: #5a3b31;
+  }
+
+  .mision { background: linear-gradient(180deg, #fff9f5, #ffe6d6); animation: float 4s ease-in-out infinite; }
+  .vision { background: linear-gradient(180deg, #fff6e6, #ffd9c2); animation: float 4.5s ease-in-out infinite alternate; }
+  .valores { background: linear-gradient(180deg, #fff5ec, #ffe2cb); animation: float 5s ease-in-out infinite alternate-reverse; }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+
+  .tagline {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.9em;
+    color: #a6281a;
+    background: rgba(255,255,255,0.7);
+    padding: 3px 10px;
+    border-radius: 10px;
+    transform: rotate(-5deg);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  footer {
+    text-align: center;
+    background: #a6281a;
+    color: #fff;
+    padding: 25px 10px;
+    margin-top: 50px;
+  }
+
+  footer a {
+    color: #ffdfb7;
+    text-decoration: none;
+    font-size: 1.3em;
+    transition: 0.3s;
+  }
+
+  footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #ffe3c1;
+  }
+
+  @media (max-width: 800px) {
+    .section-container { flex-direction: column; align-items: center; }
+  }
+
+
+
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src=" alt="Banner Chispéame">
+    <h1>🍪 Chispéame</h1>
+    <p>Tan puras que son un pecado</p>
+  </header>
+
+  <section class="logo-section">
+  </section>
+
+  <section class="container">
+    <h2 class="section-title">💬 Deja tu Reseña</h2>
+    <form id="reviewForm">
+      <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+      <input type="email" id="email" placeholder="Tu correo electrónico" required>
+      
+      <label>Calificación:</label>
+      <div class="stars" id="stars">
+        <i class="star">★</i>
+        <i class="star">★</i>
+        <i class="star">★</i>
+        <i class="star">★</i>
+        <i class="star">★</i>
+      </div>
+
+      <textarea id="comentario" rows="4" placeholder="Cuéntanos tu experiencia..." required></textarea>
+      <button type="submit">Enviar Reseña</button>
+    </form>
+  </section>
+
+  <section class="container gallery">
+    <h2 class="section-title">📸 Nuestras Galletas</h2>
+    <!-- Agrega tus imágenes aquí -->
+    <!-- Ejemplo:
+    <img src="imagenes/galleta1.jpg" alt="Galleta de avena">
+    <img src="imagenes/galleta2.jpg" alt="Chispas de chocolate">
+    -->
+  </section>
+
+  <footer>
+    <p>© 2025 Chispéame - Galletas Saludables</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/chispeame.x?igsh=dmJ0NHFhYmVqNWN5" target="_blank" title="Instagram">
+        📷 Síguenos en Instagram
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Sistema de estrellas
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        stars.forEach((s, i) => s.classList.toggle('active', i <= index));
+      });
+    });
+
+    // Acción del formulario
+    document.getElementById('reviewForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("¡Gracias por tu reseña! 🍪✨");
+      e.target.reset();
+      stars.forEach(s => s.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
+</style>
+</head>
+<body>
+
+<!-- Fondo con galletas cayendo -->
+<div id="cookie-bg"></div>
+
+<header>
+  <h1>🍪 Chispéame</h1>
+  <p>Tan puras que son un pecado</p>
+</header>
+
+<section class="section-container">
+
+  <div class="card mision">
+    <h2>✨ Misión</h2>
+    <p>Chispéame fue el producto de una creación estratégica ante la problemática de obesidad temprana por el consumo de snacks poco saludables y lo inaccesibles que pueden llegar a ser. Esta galleta se elabora a base de productos naturales o poco saturados, evitando el uso de componentes dañinos. Chispéame busca ayudar a personas de todas las edades, desde los más pequeños hasta los adultos mayores.</p>
+    <div class="tagline">🌱 "Salud con sabor"</div>
+  </div>
+
+  <div class="card vision">
+    <h2>🚀 Visión</h2>
+    <p>En un plazo de 2 a 3 años, queremos que Chispéame trascienda las fronteras, convirtiéndose en un producto saludable reconocido a nivel global. Buscamos lanzar nuevos sabores con mayores valores nutricionales, demostrando que Chispéame no se limita: ¡innova y progresa!</p>
+    <div class="tagline">💫 "Soñamos en grande"</div>
+  </div>
+
+  <div class="card valores">
+    <h2>💛 Valores</h2>
+    <p><strong>Responsabilidad:</strong> Elaboramos productos con calidad y compromiso. <br><br>
+       <strong>Innovación:</strong> Mejoramos constantemente mediante la opinión del consumidor. <br><br>
+       <strong>Honestidad:</strong> Transparencia y confianza en cada bocado. <br><br>
+       <strong>Sostenibilidad:</strong> Empaques ecológicos que respetan la naturaleza. <br><br>
+       <strong>Trabajo en equipo:</strong> Somos una familia que busca lo mejor para todos. <br><br>
+       <strong>Calidad y bienestar:</strong> Un sabor que cuida de ti y del planeta.</p>
+    <div class="tagline">🍪 "Horneado con amor"</div>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2025 Chispéame - Galletas Saludables</p>
+  <a href="https://www.instagram.com/chispeame.x?igsh=dmJ0NHFhYmVqNWN5" target="_blank">📸 Síguenos en Instagram</a>
+</footer>
+
+<!-- Script de animación de galletas cayendo -->
+<script>
+  const container = document.getElementById('cookie-bg');
+  const numCookies = 20;
+
+  for (let i = 0; i < numCookies; i++) {
+    const cookie = document.createElement('div');
+    cookie.classList.add('cookie');
+    cookie.style.left = Math.random() * 100 + 'vw';
+    cookie.style.animationDuration = (5 + Math.random() * 10) + 's';
+    cookie.style.animationDelay = Math.random() * 5 + 's';
+    cookie.style.transform = `rotate(${Math.random() * 360}deg)`;
+    container.appendChild(cookie);
+  }
+</script>
+
+</body>
+</html>
